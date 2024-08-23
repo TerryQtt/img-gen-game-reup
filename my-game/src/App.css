@@ -1,0 +1,423 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("C:\Users\terry\Documents\GitHub\final-project-TerryQtt\my-game\src\images\tempbackground.jpg");
+  background-color: rgb(12, 18, 100);
+}
+
+:root {
+  --glow-color: hsl(186 100% 69%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glowing-btn {
+  position: relative;
+  top: 0px;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
+}
+@media (max-width: 600px) {
+  span {
+    font-size: 8px; /* Smaller font size for small screens */
+  }
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+button {
+  animation: 1.5s ease infinite alternate running shimmer;
+  background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5),
+    2px 2px 10px rgba(144, 148, 255, 0.5);
+  color: #170f1e;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 670;
+  line-height: 24px;
+  overflow: hidden;
+  padding: 12px 24px;
+  position: relative;
+
+  text-decoration: none;
+  transition: 0.2s;
+
+  svg {
+    left: -20px;
+    opacity: 0.5;
+    position: absolute;
+    top: -2px;
+    transition: 0.5s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  }
+
+  &:hover svg {
+    opacity: 0.8;
+    transform: translateX(50px) scale(1.5);
+  }
+
+  &:hover {
+    transform: rotate(-3deg);
+  }
+
+  &:active {
+    transform: scale(0.95) rotate(-3deg);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-size: 100% 100%;
+    box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5),
+      2px 2px 6px rgba(144, 148, 255, 0.5);
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 100vh; /* Ensures it takes the full height of the viewport */
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 100px;
+  padding-bottom: 20px;
+  position: fixed;
+  bottom: 20px; /* Adjust the distance from the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the buttons horizontally */
+}
+
+.top-left-button-container {
+  position: fixed;
+  top: 20px; /* Adjust the distance from the top */
+  left: 20px; /* Adjust the distance from the left */
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between the buttons */
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures it takes the full height of the viewport */
+}
+
+.content {
+  flex: 1; /* Makes content take up the remaining space */
+  padding: 20px;
+  overflow-y: auto; /* Ensures content is scrollable if it overflows */
+}
+.scene-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh; /* Use height instead of min-height */
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.image-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px; /* Space between the image and dialogue */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dialogue-container {
+  left:50%;
+  width: 50%;
+  max-width: 600px;
+  flex-shrink: 0; /* Prevent dialogue from shrinking */
+  margin: 0 auto;
+}
+
+dialog {
+  left:25%;
+  width: 50%;
+  margin: 0;
+  max-height: 50vh; /* Ensures the dialogue box doesn't take too much space */
+  overflow-y: auto; /* Scroll if the dialogue content is too long */
+}
+.top-left-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  flex-wrap: wrap; /* Ensures buttons wrap if there's no space */
+  z-index: 1000; /* Ensure the buttons are on top */
+}
+
+.top-left-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.top-right-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  flex-wrap: wrap; /* Ensures buttons wrap if there's no space */
+  z-index: 1000; /* Ensure the buttons are on top */
+}
+
+.top-right-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
