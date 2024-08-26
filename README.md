@@ -1,5 +1,7 @@
 # Simple DnD Style Browser Game
 
+Hosted here: final-project-game-6af16.web.app
+
 ## Overview
 
 A simple web browser choose your adventure style game with a home page, user log in and save files, as well as a basic scene page that displays dialogue, action options, and hopefully some kind of visualization. There will also be an inventory page only accessible to the user once they are loaded into a game session, not from the home page.
